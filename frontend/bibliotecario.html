@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/frontend/css/pagina.css">
+    <link rel="stylesheet" href="/frontend/css/bibliotecario.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script defer src="./js/bibliotecario.js"></script>
+    <title>bibliotecario</title>
+</head>
+<body>
+
+    <div class="mensagensCorfirm" id="mensagensConfirm"><p></p></div>
+
+    <div class="mensagens" id="mensagensErro"></div>
+
+    <div class="fundoModal" id="fundoModal">
+     <div class="novoLivro" id="modal">
+           <div class="tituloModal">
+            <div>
+            <h1>Cadastro de  Livro</h1>
+            <p>Informe os dados livro</p>
+          </div>
+            <button onclick="fecharModal(event)">Fechar</button>
+        </div>
+
+        <hr class="linha"></hr>
+
+        <form id="formulario" class="inputs">
+
+            <div class="input">
+                <label for="Titulo">Titulo</label>
+                <input id="titulo" name="titulo" type="text">
+            </div>
+            <div class="input">
+                <label  for="Autor">Autor</label>
+                <input  id="autor" name="autor" type="text">
+            </div>
+            <div class="input">
+                <label for="Ano">Ano</label>
+                <input  id="ano" name="ano" type="text">
+            </div>
+            <div class="input">
+                <label for="Quatidade Incial">Quatidade Incial</label>
+                <input  id="quantidade" name="quantidade" type="text">
+            </div>
+   
+            <div class="modalButao">
+                <button class="cancelar" onclick="fecharModal(event)">Cancelar</button>
+                <button class="criar" onclick="criarLivro(event)">Criar</button>
+            </div>
+        </form>
+    </div>
+    </div>
+    
+    <div class="navbar">
+    <div class="logoNavbar">
+        <img src="/frontend/img/logo.svg" alt="logo">
+        <h1 class="title">BIBLIOTECA</h1>
+        <p class="subtitle">Painel do leitor</p>
+    </div>
+        <a onclick="telaAtiva('tabela1', this)" class="ativo" href="#">Livros</a>
+        <a onclick="telaAtiva('tabela2', this)" href="#">Emprestimos</a>
+    </div>
+
+    <section class="content">
+    <div>
+        <h1>Bem-vindo, <span style="color: rgb(243, 213, 45);">Bibliotecario</span></h1>
+        <p style="color: rgba(240, 248, 255, 0.249);">Gerencie livros, empréstimos e devoluções.</p>
+    </div>
+
+    <div class="fundoTabela">
+        <div class="pesquisaButao">
+        <input onclick="" type="text" placeholder="Pesquise livros...">
+        <button onclick="abrirModal(id)">+ Novo Livro</button>
+        </div>
+    
+    <div class="tabela-container" id="tabela1">
+        <table>
+             <thead>
+              <tr class="titulosTabela">
+                <th id ="id">ID</th>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Ano</th>
+                <th>Disponível</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaLivros"></tbody>
+     </table>
+</div>
+
+  <div class="tabela-container" id="tabela2" style="display: none;">
+      <table>
+             <thead>
+              <tr class="titulosTabela">
+                <th>Leitor</th>
+                <th>Livro</th>
+                <th>Data do Empréstimo</th>
+                <th>Data de Devolução P</th>
+                <th>Data de Devolução R</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaEmprestimo"></tbody>
+     </table>
+    </div>
+ </div>
+</div>
+</section>
+</body>
+</html>

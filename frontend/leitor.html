@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/frontend/css/leitor.css">
+    <link rel="stylesheet" href="/frontend/css/pagina.css">
+    <script defer src="./js/leitor.js"></script>
+    <title>leitor</title>
+</head>
+
+<body>
+
+    <div class="fundoModal" id="fundoModal">
+     <div class="novoEmprestimo" id="modal">
+           <div class="tituloModal">
+            <div>
+            <h1>Solicitar livro</h1>
+            <p>Informe os dados necessários para solicitar o emprestimo</p>
+          </div>
+            <button onclick="fecharModal(event)">Fechar</button>
+        </div>
+
+        <hr class="linha"></hr>
+
+        <form id="formulario" class="inputs">
+
+            <div class="input">
+                <label for="data_emprestimo">Data do Empréstimo</label>
+                <input id="data_emprestimo" name="data_emprestimo" type="date">
+            </div>
+            <div class="input">
+                <label  for="data_devolucao_p">Data devolução prevista</label>
+                <input  id="data_devolucao_p" name="data_devolucao_p" type="date">
+            </div>
+            <div class="input">
+                <label for="data_devolucao_r">Data de Devolução</label>
+                <input  id="data_devolucao_r" name="data_devolucao_r" type="date">
+            </div>
+            <div class="modalButao">
+                <button class="cancelar" onclick="fecharModal(event)">Cancelar</button>
+                <button class="criar" onclick="criarLivro(event)">Criar</button>
+            </div>
+        </form>
+    </div>
+    </div>
+    
+    <div class="navbar">
+        <div class="logoNavbar">
+            <img src="/frontend/img/logo.svg" alt="logo">
+            <h1 class="title">BIBLIOTECA</h1>
+            <p class="subtitle">Painel do leitor</p>
+        </div>
+        <a onclick="telaAtiva('tabela1', this)" class="ativo" href="#">Livros</a>
+        <a onclick="telaAtiva('tabela2', this)" href="#">Emprestimos</a>
+        <a onclick="telaAtiva()" href="#">Sair</a>
+        </div>
+
+    <div class="content">
+
+        <div>
+            <h1>Bem-vindo, <span style="color: rgb(243, 213, 45);">Leitor</span></h1>
+            <p style="color: rgba(240, 248, 255, 0.249);">Aqui você pode acessar seus livros, histórico de empréstimos e muito mais.</p>
+        </div>
+
+
+        <div class="fundoTabela">
+            <div class="pesquisaButao">
+                <input onclick="" type="text" placeholder="Pesquise livros...">
+            </div>
+
+            <div class="tabela-container" id="tabela1">
+                <table>
+                    <thead>
+                        <tr class="tulosTabela">
+                            <th id="id">ID</th>
+                            <th>Titulo</th>
+                            <th>Autor</th>
+                            <th>Ano</th>
+                            <th>Disponível</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaLivros"></tbody>
+                </table>
+            </div>
+
+              <div class="tabela-container" id="tabela2" style="display: none;">
+      <table>
+             <thead>
+              <tr class="titulosTabela">
+                <th>Leitor</th>
+                <th>Livro</th>
+                <th>Data do Empréstimo</th>
+                <th>Data de Devolução P</th>
+                <th>Data de Devolução R</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaEmprestimo"></tbody>
+     </table>
+    </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
